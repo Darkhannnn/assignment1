@@ -35,7 +35,18 @@ public class Shape {
     }
 
     // getLongestSide()
-//    public double getLongest() {
-//        return 0;
-//    }
+    public double getLongest() {
+        double longestLength = 0;
+
+        for (int i = 0; i < points.size(); i++) {
+            Point currentPoint = points.get(i);
+            Point nextPoint = points.get((i + 1) % points.size());
+            double currentLength = currentPoint.distance(nextPoint);
+
+            if (currentLength > longestLength) {
+                longestLength = currentLength;
+            }
+        }
+        return longestLength;
+    }
 }
